@@ -1,12 +1,11 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, effect, inject } from '@angular/core';
+import { Menu } from './menu/menu';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [Menu, RouterOutlet],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
-export class App {
-  protected readonly title = signal('zenika-ng-website');
-}
+export class App {}

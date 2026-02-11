@@ -1,0 +1,21 @@
+<div class="col">
+  <div class="card h-100 text-center" [class.text-bg-warning]="isLastChance()">
+    <img src="{{ product().photo }}" alt="{{ product().title }}" class="card-img-top" />
+    <div class="card-header">
+      <small>{{ product().description }}</small>
+    </div>
+    <div class="card-body">
+      <h3 class="h6 card-title">
+        <a class="card-link" [routerLink]="['/product', product().id]">
+          {{ product().title }}
+        </a>
+      </h3>
+      <p class="card-text">{{ product().price | currency: 'EUR' }}</p>
+      @if (product().stock > 0) {
+        <button class="btn btn-primary" (click)="onClick(product())">Ajouter au panier</button>
+      } @else {
+        <button class="btn btn-disabled">Victime de son succès</button>
+      }
+    </div>
+  </div>
+</div>
